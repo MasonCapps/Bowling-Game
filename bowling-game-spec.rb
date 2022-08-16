@@ -36,4 +36,13 @@ RSpec.describe BowlingGame do
       expect(subject.strikes(pins)).to eq(97)
     end
   end
+
+  describe "#running_marks" do
+    it "returns the score of a 'simple' bowling game" do
+      pins = [1, 5, 4, 4, 8, "/", 5, 3, "X", 4, "/", 2, 3, 8, "/", 7, 1, 1, 1]
+      subject = described_class.new
+
+      expect(subject.running_marks(pins)).to eq(101)
+    end
+  end
 end

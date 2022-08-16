@@ -33,5 +33,26 @@ class BowlingGame
   end
 
   def strikes(pins)
+    score = 0
+    index = 0
+    while index < pins.length
+      if pins[index] == "X"
+        score += 10
+        score += pins[index + 1]
+        score += pins[index + 2]
+      elsif pins[index] == "/"
+        score += 10 - pins[index - 1]
+        score += pins[index + 1]
+      elsif pins[index] == "-"
+        score += 0
+      else
+        score += pins[index]
+      end
+      index += 1
+    end
+    return score
+  end
+
+  def running_marks(pins)
   end
 end
