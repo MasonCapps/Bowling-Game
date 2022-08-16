@@ -96,7 +96,44 @@ class BowlingGame
         end
       elsif pins[index] == "/"
         score += 10 - pins[index - 1]
-        score += pins[index + 1]
+        if pins[index + 1] == "X"
+          score += 10
+        else
+          score += pins[index + 1]
+        end
+      elsif pins[index] == "-"
+        score += 0
+      else
+        score += pins[index]
+      end
+      index += 1
+    end
+    return score
+  end
+
+  def late_strike(pins)
+    score = 0
+    index = 0
+    while index < pins.length
+      if pins[index] == "X"
+        score += 10
+        if pins[index + 1] == "X"
+          score += 10
+        else
+          score += pins[index + 1]
+        end
+        if pins[index + 2] == "/"
+          score += 10 - pins[index + 1]
+        else
+          score += pins[index + 2]
+        end
+      elsif pins[index] == "/"
+        score += 10 - pins[index - 1]
+        if pins[index + 1] == "X"
+          score += 10
+        else
+          score += pins[index + 1]
+        end
       elsif pins[index] == "-"
         score += 0
       else

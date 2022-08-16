@@ -60,7 +60,16 @@ RSpec.describe BowlingGame do
       pins = [1, 5, 4, 4, 8, "/", 5, 3, "X", "X", 2, 3, 8, "/", "X", 1, 1]
       subject = described_class.new
 
-      expect(subject.late_strike(pins)).to eq(106)
+      expect(subject.late_strike(pins)).to eq(113)
+    end
+  end
+
+  describe "#endgame" do
+    it "returns the score of a 'simple' bowling game" do
+      pins = [1, 5, 4, 4, 8, "/", 5, 3, "X", "X", 2, 3, 8, "/", "X", 1, 1]
+      subject = described_class.new
+
+      expect(subject.endgame(pins)).to eq(123)
     end
   end
 end
